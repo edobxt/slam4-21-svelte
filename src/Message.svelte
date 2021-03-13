@@ -7,8 +7,8 @@
 
     // Message a envoyer
     let message = "";
-    // Props author
-    export let author;
+    // Auteur du message
+    let author = "";
     // Ajoute un message à la liste des messages
     const saveMessage = () => {
         // Structure d'un message
@@ -24,13 +24,21 @@
         dispatch('message', newMessage);
         // Reset de la variable message
         message = "";
+        // Reset de la variable author
+        author = "";
     }
 </script>
 
 <main>
+    <input class="text" type="text" bind:value={author}>
+    <br>
     <textarea cols="50" rows="5" bind:value={message}></textarea>
     <br>
     <button on:click={saveMessage}>Send</button>
 </main>
 
-<style></style>
+<style>
+    .text {
+        width: 382px;
+    }
+</style>

@@ -20,7 +20,7 @@
 <main>
 	<h1>{name}!</h1>
     
-    <Message author="Jojo" on:message={addMessage}/>
+    <Message on:message={addMessage}/>
 
     <div>
         <h2>Messages</h2>
