@@ -24,7 +24,9 @@ import { text } from "svelte/internal";
         };
         // Ajout du message au début de la liste des messages
         messages = [newMessage, ...messages];
-        console.log('messages', messages);
+        //console.log('messages', messages);
+        // Reset de la variable message
+        message = "";
     }
 </script>
 
