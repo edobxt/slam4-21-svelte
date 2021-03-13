@@ -9,6 +9,9 @@
     let message = "";
     // Auteur du message
     let author = "";
+    // Longueur du message en temps réel
+    $: nbCaracters = message.length;
+
     // Ajoute un message à la liste des messages
     const saveMessage = () => {
         // Structure d'un message
@@ -16,6 +19,7 @@
             id: Date.now(),
             text: message,
             author: author,
+            date: new Date(),
         };
         // Ajout du message au début de la liste des messages
         //messages = [newMessage, ...messages];
@@ -34,7 +38,7 @@
     <br>
     <textarea cols="50" rows="5" bind:value={message}></textarea>
     <br>
-    <button on:click={saveMessage}>Send</button>
+    <button on:click={saveMessage}>Send</button><span>{nbCaracters}</span>
 </main>
 
 <style>

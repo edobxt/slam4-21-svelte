@@ -15,6 +15,21 @@
         // dans la liste des messages
         messages = [event.detail, ...messages];
     }
+
+    // Options du format de la date d'ajout d'un message
+    const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour12: true,
+        hour: "numeric",
+        minute: "2-digit",
+        second: "2-digit",
+    };
+
+    // Formatter de la date
+    const formatter = new Intl.DateTimeFormat("en-US", options);
 </script>
 
 <main>
@@ -27,7 +42,7 @@
         <!-- Parcourir la liste des messages -->
         {#each messages as message}
             <!-- Auteur du message -->
-            <div class="author">By {message.author}</div>
+            <div class="author">By {message.author} on {formatter.format(message.date)}</div>
             <!-- Contenu du message -->
             <div>{message.text}</div>
             <!-- Barre de séparation -->
