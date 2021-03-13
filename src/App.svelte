@@ -27,7 +27,7 @@
         <!-- Parcourir la liste des messages -->
         {#each messages as message}
             <!-- Auteur du message -->
-            <div>By {message.author}</div>
+            <div class="author">By {message.author}</div>
             <!-- Contenu du message -->
             <div>{message.text}</div>
             <!-- Barre de séparation -->
@@ -56,4 +56,8 @@
 			max-width: none;
 		}
 	}
+
+    .author {
+        font-weight: bold;
+    }
 </style>
