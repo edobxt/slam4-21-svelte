@@ -5,12 +5,22 @@
 	export let name;
     // Liste des messages
     let messages = [];
+    // Fonction permettant d'ajouter un message
+    // en utilisant le custom event message
+    const addMessage = (event) => {
+        // Récupération du message
+        // dans le custom event
+        console.log(event.detail);
+        // Ajout du message
+        // dans la liste des messages
+        messages = [event.detail, ...messages];
+    }
 </script>
 
 <main>
 	<h1>{name}!</h1>
     
-    <Message author="Jojo"/>
+    <Message author="Jojo" on:message={addMessage}/>
 
     <div>
         <h2>Messages</h2>

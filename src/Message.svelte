@@ -1,4 +1,10 @@
 <script>
+    // Importation du dispatcher pour créer
+    // des custom event
+    import {createEventDispatcher} from 'svelte';
+
+    const dispatch = createEventDispatcher();
+
     // Message a envoyer
     let message = "";
     // Props author
@@ -14,6 +20,8 @@
         // Ajout du message au début de la liste des messages
         //messages = [newMessage, ...messages];
         console.log('newMessage', newMessage);
+        // Dispatcher l'event message et passer le payload newMessage
+        dispatch('message', newMessage);
         // Reset de la variable message
         message = "";
     }
