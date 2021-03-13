@@ -1,4 +1,6 @@
 <script>
+import { text } from "svelte/internal";
+
     // Nom de l'application
 	export let name;
     // Message a envoyer
@@ -34,6 +36,18 @@
     <div>
         <h3>Preview</h3>
         {message}
+    </div>
+    <div>
+        <h2>Messages</h2>
+        <!-- Parcourir la liste des messages -->
+        {#each messages as message}
+            <!-- Auteur du message -->
+            <div>By {message.author}</div>
+            <!-- Contenu du message -->
+            <div>{message.text}</div>
+            <!-- Barre de séparation -->
+            <hr>
+        {/each}
     </div>
 </main>
 
