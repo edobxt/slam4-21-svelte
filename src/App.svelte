@@ -9,10 +9,10 @@ import { text } from "svelte/internal";
     let messages = [];
 
     // Attribue la valeur du texte area à la variable message
-    const updateMessage = (event) => {
-        console.log(event.target.value);
-        message = event.target.value;
-    }
+    // const updateMessage = (event) => {
+    //     console.log(event.target.value);
+    //     message = event.target.value;
+    // }
     
     // Ajoute un message à la liste des messages
     const saveMessage = () => {
@@ -30,7 +30,7 @@ import { text } from "svelte/internal";
 
 <main>
 	<h1>{name}!</h1>
-    <textarea cols="50" rows="5" on:input={updateMessage}></textarea>
+    <textarea cols="50" rows="5" bind:value={message}></textarea>
     <br>
     <button on:click={saveMessage}>Send</button>
     <div>
