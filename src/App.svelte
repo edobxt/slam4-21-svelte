@@ -1,10 +1,14 @@
 <script>
     import { text } from "svelte/internal";
     import Message from "./Message.svelte";
+
     // Nom de l'application
 	export let name;
     // Liste des messages
     let messages = [];
+    // Variable flag
+    let isVisible = true;
+
     // Fonction permettant d'ajouter un message
     // en utilisant le custom event message
     const addMessage = (event) => {
@@ -30,12 +34,24 @@
 
     // Formatter de la date
     const formatter = new Intl.DateTimeFormat("en-US", options);
+
+    // Toggle sur la visibilité du component Message
+    const toggle = () => {
+        isVisible = !isVisible;
+    }
 </script>
 
 <main>
 	<h1>{name}!</h1>
-    
+
+    <div>
+        <button on:click={toggle}>{isVisible ? 'hide' : 'show'}</button>
+        <br>
+    </div>
+
+    {#if isVisible}
     <Message on:message={addMessage}/>
+    {/if}
 
     <div>
         <h2>Messages</h2>
