@@ -11,6 +11,8 @@
     let author = "";
     // Longueur du message en temps réel
     $: nbCaracters = message.length;
+    // Désactiver le bouton après un certain nombre de caractères
+    $: disabled = message.length > 12 ? true : false;
 
     // Ajoute un message à la liste des messages
     const saveMessage = () => {
@@ -38,7 +40,8 @@
     <br>
     <textarea cols="50" rows="5" bind:value={message}></textarea>
     <br>
-    <button on:click={saveMessage}>Send</button><span>{nbCaracters}</span>
+    <!-- Bouton désactiver si disabled est vaut true -->
+    <button on:click={saveMessage} disabled={disabled}>Send</button> <span>{nbCaracters}</span>
 </main>
 
 <style>
